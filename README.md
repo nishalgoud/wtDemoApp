@@ -1,6 +1,18 @@
-# Getting Started with Create React App
+# Instructions to run application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Tools required
+install node js
+
+
+# Getting Started with project 
+
+### `npm install`
+this will install the dependencies
+
+### `npm run start`
+
+this will run the application, make sure to run the application on given port nmumbers 
+
 
 ## Available Scripts
 

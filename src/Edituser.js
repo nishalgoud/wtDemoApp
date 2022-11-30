@@ -16,7 +16,11 @@ export function Edituser() {
 
   const getUserDetails = async () => {
     const { data } = await axios.get(
-      `http://localhost:4000/api/usersList/${userId}`
+      `http://localhost:4000/api/usersList/${userId}`,  {
+        headers: {
+          'Authorization': `Bearer ${sessionStorage.getItem('token')}`
+        }
+      }
     );
     setUserDetails({ userName: data[0].userName, fullName: data[0].fullName });
   };
@@ -28,6 +32,10 @@ export function Edituser() {
         userId,
         userName: userDetails.userName,
         fullName: userDetails.fullName,
+      },  {
+        headers: {
+          'Authorization': `Bearer ${sessionStorage.getItem('token')}`
+        }
       });
       alert('user updated successfully')
 

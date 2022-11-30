@@ -12,7 +12,11 @@ export function UsersList() {
 
     const getUsersList = async () =>{
 
-        const { data } = await axios.get('http://localhost:4000/api/usersList');
+        const { data } = await axios.get('http://localhost:4000/api/usersList', {
+          headers: {
+            'Authorization': `Bearer ${sessionStorage.getItem('token')}`
+          }
+        });
         setUsersList(data);
         console.log(data, 'usersList');
 
@@ -22,7 +26,11 @@ export function UsersList() {
 
       const res = window.confirm('are you sure you want to delete?');
       if(res){
-        const { data } = await axios.delete(`http://localhost:4000/api/deleteUser/${userId}`);
+        const { data } = await axios.delete(`http://localhost:4000/api/deleteUser/${userId}`,  {
+          headers: {
+            'Authorization': `Bearer ${sessionStorage.getItem('token')}`
+          }
+        });
 
         alert('user has been deleted');
         navigate(0);

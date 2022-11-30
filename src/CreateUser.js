@@ -20,6 +20,10 @@ export function CreateUser() {
         try{
             const res = await axios.post('http://localhost:4000/api/createUser', {
                 userName, fullName
+            }, {
+              headers: {
+                'Authorization': `Bearer ${sessionStorage.getItem('token')}`
+              }
             })
             alert(`user ${userName} has been created`);
             navigate('/usersList');
